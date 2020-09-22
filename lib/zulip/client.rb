@@ -21,6 +21,7 @@ module Zulip
         faraday.adapter Faraday.default_adapter
         faraday.options[:open_timeout] ||= DEFAULT_OPEN_TIMEOUT
         faraday.options[:timeout] ||= DEFAULT_TIMEOUT
+        faraday.options[:headers] = { 'Referer' => site.to_s }
         yield faraday if block_given?
       end
       @connection.basic_auth(username, api_key)
