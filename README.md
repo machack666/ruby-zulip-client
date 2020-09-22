@@ -39,7 +39,7 @@ client.send_message(type: :private, to: ["user1@zulip.example.com", "user2@zulip
 Receive all events:
 
 ```ruby
-client.each_event do |event|
+client.stream_event do |event|
   p event
 end
 ```
@@ -47,7 +47,7 @@ end
 Receive message event:
 
 ```ruby
-client.each_message do |event|
+client.stream_message do |event|
   p event
 end
 ```
